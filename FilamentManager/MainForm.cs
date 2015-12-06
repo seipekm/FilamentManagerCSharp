@@ -51,33 +51,57 @@ namespace FilamentManager
 
         private void listFactoryCb()
         {
-            MySqlDataAdapter da = new MySqlDataAdapter("SELECT id, name FROM manufacturer", sqlCon);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            cbFactory.DataSource = dt;
-            cbFactory.DisplayMember = "name";
-            cbFactory.ValueMember = "id";
+            try
+            {
+                MySqlDataAdapter da = new MySqlDataAdapter("SELECT id, name FROM manufacturer", sqlCon);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cbFactory.DataSource = dt;
+                cbFactory.DisplayMember = "name";
+                cbFactory.ValueMember = "id";
+            }
+            catch
+            {
+
+            }
+            
 
         }
         
         private void listPrintOs()
         {
-            MySqlDataAdapter da = new MySqlDataAdapter("SELECT *FROM printOs", sqlCon);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            cbPrintOs.DataSource = dt;
-            cbPrintOs.DisplayMember = "name";
-            cbPrintOs.ValueMember = "id";
+            try
+            {
+                MySqlDataAdapter da = new MySqlDataAdapter("SELECT *FROM printOs", sqlCon);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cbPrintOs.DataSource = dt;
+                cbPrintOs.DisplayMember = "name";
+                cbPrintOs.ValueMember = "id";
+            }
+            catch
+            {
+
+            }
+            
         }
 
         private void listFilament()
         {
-            MySqlDataAdapter da = new MySqlDataAdapter("SELECT id, barcode FROM filament", sqlCon);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            cbMaterial.DataSource = dt;
-            cbMaterial.DisplayMember = "barcode";
-            cbMaterial.ValueMember = "id";
+            try
+            {
+                MySqlDataAdapter da = new MySqlDataAdapter("SELECT id, barcode FROM filament", sqlCon);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cbMaterial.DataSource = dt;
+                cbMaterial.DisplayMember = "barcode";
+                cbMaterial.ValueMember = "id";
+            }
+            catch
+            {
+
+            }
+            
         }
 
         private void btnSaveBarcode_Click(object sender, EventArgs e)
@@ -393,7 +417,7 @@ namespace FilamentManager
                 DataTable DATA = new DataTable();
                 SDA.Fill(DATA);
                 gvFi.DataSource = DATA;
-                gvFi.Columns[0].HeaderCell.Value = "Anzahl";
+                gvFi.Columns[0].HeaderCell.Value = "Nr.";
                 gvFi.Columns[1].HeaderCell.Value = "Barcode";
                 gvFi.Columns[2].HeaderCell.Value = "Hersteller";
                 gvFi.Columns[3].HeaderCell.Value = "Farbe";
@@ -414,7 +438,7 @@ namespace FilamentManager
             try
             {
                 sqlCon.Open();
-                string query =  "SELECT printJobs.id, printOs.name, printID, filament.barcode, printWeight FROM printJobs "+
+                string query =  "SELECT printJobs.id, printOs.name, printID, filament.barcode, printWeight, printName FROM printJobs "+
                                 "INNER join printOs on printJobs.printOsID = printOs.id "+
                                 "INNER join filament on printJobs.materialID = filament.id";
 
@@ -422,11 +446,16 @@ namespace FilamentManager
                 DataTable DATA = new DataTable();
                 SDA.Fill(DATA);
                 gvJobs.DataSource = DATA;
-                gvJobs.Columns[0].HeaderCell.Value = "Anzahl";
+                gvJobs.Columns[0].Width = 40;
+                gvJobs.Columns[0].HeaderCell.Value = "Nr.";
                 gvJobs.Columns[1].HeaderCell.Value = "Software";
                 gvJobs.Columns[2].HeaderCell.Value = "Druck ID";
+                gvJobs.Columns[2].Width = 100;
                 gvJobs.Columns[3].HeaderCell.Value = "Material";
+                gvJobs.Columns[3].Width = 180;
                 gvJobs.Columns[4].HeaderCell.Value = "Druck Gewicht[g]";
+                gvJobs.Columns[4].Width = 140;
+                gvJobs.Columns[5].HeaderCell.Value = "Beschreibung";
 
                 sqlCon.Close();
             }
@@ -440,11 +469,11 @@ namespace FilamentManager
 
         private void gvFi_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            txtGenBarcode.Text = gvFi.SelectedRows[0].Cells[0].Value.ToString();
-            cbFactory.Text = gvFi.SelectedRows[0].Cells[1].Value.ToString();
-            txtColor.Text = gvFi.SelectedRows[0].Cells[2].Value.ToString();
-            txtNetto.Text = gvFi.SelectedRows[0].Cells[3].Value.ToString();
-            txtBrutto.Text = gvFi.SelectedRows[0].Cells[3].Value.ToString();
+            txtGenBarcode.Text = gvFi.SelectedRows[0].Cells[1].Value.ToString();
+            cbFactory.Text = gvFi.SelectedRows[0].Cells[2].Value.ToString();
+            txtColor.Text = gvFi.SelectedRows[0].Cells[3].Value.ToString();
+            txtNetto.Text = gvFi.SelectedRows[0].Cells[4].Value.ToString();
+            txtBrutto.Text = gvFi.SelectedRows[0].Cells[4].Value.ToString();
         }
 
         private void btnFilaDelete_Click(object sender, EventArgs e)

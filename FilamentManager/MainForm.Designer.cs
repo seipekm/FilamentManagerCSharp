@@ -52,6 +52,7 @@
             this.cbFactory = new MetroFramework.Controls.MetroComboBox();
             this.gvFi = new MetroFramework.Controls.MetroGrid();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.gvJobs = new MetroFramework.Controls.MetroGrid();
             this.btnDelPrintJob = new MetroFramework.Controls.MetroLink();
             this.btnAddPrintJob = new MetroFramework.Controls.MetroLink();
             this.cbMaterial = new MetroFramework.Controls.MetroComboBox();
@@ -90,18 +91,18 @@
             this.txtHost = new MetroFramework.Controls.MetroTextBox();
             this.lnlClose = new MetroFramework.Controls.MetroLink();
             this.msmMain = new MetroFramework.Components.MetroStyleManager(this.components);
-            this.gvJobs = new MetroFramework.Controls.MetroGrid();
+            this.txtDescription = new MetroFramework.Controls.MetroTextBox();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvFi)).BeginInit();
             this.metroTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvJobs)).BeginInit();
             this.metroTabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvJobs)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTabControl1
@@ -213,7 +214,7 @@
             this.btnFilaDelete.Image = global::FilamentManager.Properties.Resources.minus;
             this.btnFilaDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFilaDelete.ImageSize = 50;
-            this.btnFilaDelete.Location = new System.Drawing.Point(59, 182);
+            this.btnFilaDelete.Location = new System.Drawing.Point(59, 188);
             this.btnFilaDelete.Name = "btnFilaDelete";
             this.btnFilaDelete.NoFocusImage = global::FilamentManager.Properties.Resources.minus;
             this.btnFilaDelete.Size = new System.Drawing.Size(50, 50);
@@ -228,7 +229,7 @@
             this.btnFilaAdd.Image = global::FilamentManager.Properties.Resources.plus;
             this.btnFilaAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFilaAdd.ImageSize = 50;
-            this.btnFilaAdd.Location = new System.Drawing.Point(3, 182);
+            this.btnFilaAdd.Location = new System.Drawing.Point(3, 188);
             this.btnFilaAdd.Name = "btnFilaAdd";
             this.btnFilaAdd.NoFocusImage = global::FilamentManager.Properties.Resources.plus;
             this.btnFilaAdd.Size = new System.Drawing.Size(50, 50);
@@ -243,7 +244,7 @@
             this.btnGenBarcode.Image = global::FilamentManager.Properties.Resources.Barcode;
             this.btnGenBarcode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGenBarcode.ImageSize = 50;
-            this.btnGenBarcode.Location = new System.Drawing.Point(175, 182);
+            this.btnGenBarcode.Location = new System.Drawing.Point(175, 188);
             this.btnGenBarcode.Name = "btnGenBarcode";
             this.btnGenBarcode.NoFocusImage = global::FilamentManager.Properties.Resources.Barcode;
             this.btnGenBarcode.Size = new System.Drawing.Size(116, 50);
@@ -427,7 +428,7 @@
             this.gvFi.EnableHeadersVisualStyles = false;
             this.gvFi.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gvFi.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gvFi.Location = new System.Drawing.Point(0, 238);
+            this.gvFi.Location = new System.Drawing.Point(0, 249);
             this.gvFi.MultiSelect = false;
             this.gvFi.Name = "gvFi";
             this.gvFi.ReadOnly = true;
@@ -441,12 +442,13 @@
             this.gvFi.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gvFi.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gvFi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvFi.Size = new System.Drawing.Size(1152, 314);
+            this.gvFi.Size = new System.Drawing.Size(1152, 303);
             this.gvFi.TabIndex = 3;
             this.gvFi.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gvFi_MouseDoubleClick);
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.Controls.Add(this.txtDescription);
             this.metroTabPage1.Controls.Add(this.gvJobs);
             this.metroTabPage1.Controls.Add(this.btnDelPrintJob);
             this.metroTabPage1.Controls.Add(this.btnAddPrintJob);
@@ -466,13 +468,61 @@
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
+            // gvJobs
+            // 
+            this.gvJobs.AllowUserToAddRows = false;
+            this.gvJobs.AllowUserToDeleteRows = false;
+            this.gvJobs.AllowUserToResizeColumns = false;
+            this.gvJobs.AllowUserToResizeRows = false;
+            this.gvJobs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gvJobs.BackgroundColor = System.Drawing.Color.White;
+            this.gvJobs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gvJobs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gvJobs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.gvJobs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.gvJobs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gvJobs.DefaultCellStyle = dataGridViewCellStyle5;
+            this.gvJobs.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gvJobs.EnableHeadersVisualStyles = false;
+            this.gvJobs.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.gvJobs.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.gvJobs.Location = new System.Drawing.Point(0, 249);
+            this.gvJobs.MultiSelect = false;
+            this.gvJobs.Name = "gvJobs";
+            this.gvJobs.ReadOnly = true;
+            this.gvJobs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.gvJobs.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.gvJobs.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gvJobs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvJobs.Size = new System.Drawing.Size(1152, 303);
+            this.gvJobs.TabIndex = 41;
+            // 
             // btnDelPrintJob
             // 
             this.btnDelPrintJob.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelPrintJob.Image = global::FilamentManager.Properties.Resources.minus;
             this.btnDelPrintJob.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelPrintJob.ImageSize = 50;
-            this.btnDelPrintJob.Location = new System.Drawing.Point(59, 182);
+            this.btnDelPrintJob.Location = new System.Drawing.Point(59, 193);
             this.btnDelPrintJob.Name = "btnDelPrintJob";
             this.btnDelPrintJob.NoFocusImage = global::FilamentManager.Properties.Resources.minus;
             this.btnDelPrintJob.Size = new System.Drawing.Size(50, 50);
@@ -486,7 +536,7 @@
             this.btnAddPrintJob.Image = global::FilamentManager.Properties.Resources.plus;
             this.btnAddPrintJob.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddPrintJob.ImageSize = 50;
-            this.btnAddPrintJob.Location = new System.Drawing.Point(3, 182);
+            this.btnAddPrintJob.Location = new System.Drawing.Point(3, 193);
             this.btnAddPrintJob.Name = "btnAddPrintJob";
             this.btnAddPrintJob.NoFocusImage = global::FilamentManager.Properties.Resources.plus;
             this.btnAddPrintJob.Size = new System.Drawing.Size(50, 50);
@@ -527,7 +577,7 @@
             this.txtPrintWeight.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.txtPrintWeight.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.txtPrintWeight.Lines = new string[0];
-            this.txtPrintWeight.Location = new System.Drawing.Point(3, 121);
+            this.txtPrintWeight.Location = new System.Drawing.Point(3, 157);
             this.txtPrintWeight.MaxLength = 32767;
             this.txtPrintWeight.Name = "txtPrintWeight";
             this.txtPrintWeight.PasswordChar = '\0';
@@ -1108,53 +1158,37 @@
             // 
             this.msmMain.Owner = null;
             // 
-            // gvJobs
+            // txtDescription
             // 
-            this.gvJobs.AllowUserToAddRows = false;
-            this.gvJobs.AllowUserToDeleteRows = false;
-            this.gvJobs.AllowUserToResizeColumns = false;
-            this.gvJobs.AllowUserToResizeRows = false;
-            this.gvJobs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gvJobs.BackgroundColor = System.Drawing.Color.White;
-            this.gvJobs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gvJobs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.gvJobs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.gvJobs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.gvJobs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gvJobs.DefaultCellStyle = dataGridViewCellStyle5;
-            this.gvJobs.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gvJobs.EnableHeadersVisualStyles = false;
-            this.gvJobs.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.gvJobs.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.gvJobs.Location = new System.Drawing.Point(0, 238);
-            this.gvJobs.MultiSelect = false;
-            this.gvJobs.Name = "gvJobs";
-            this.gvJobs.ReadOnly = true;
-            this.gvJobs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.gvJobs.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.gvJobs.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.gvJobs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvJobs.Size = new System.Drawing.Size(1152, 314);
-            this.gvJobs.TabIndex = 41;
+            // 
+            // 
+            // 
+            this.txtDescription.CustomButton.Image = null;
+            this.txtDescription.CustomButton.Location = new System.Drawing.Point(260, 2);
+            this.txtDescription.CustomButton.Name = "";
+            this.txtDescription.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.txtDescription.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtDescription.CustomButton.TabIndex = 1;
+            this.txtDescription.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtDescription.CustomButton.UseSelectable = true;
+            this.txtDescription.CustomButton.Visible = false;
+            this.txtDescription.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.txtDescription.Lines = new string[0];
+            this.txtDescription.Location = new System.Drawing.Point(3, 121);
+            this.txtDescription.MaxLength = 32767;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.PasswordChar = '\0';
+            this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDescription.SelectedText = "";
+            this.txtDescription.SelectionLength = 0;
+            this.txtDescription.SelectionStart = 0;
+            this.txtDescription.Size = new System.Drawing.Size(288, 30);
+            this.txtDescription.TabIndex = 42;
+            this.txtDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDescription.UseSelectable = true;
+            this.txtDescription.WaterMark = "Beschreibung";
+            this.txtDescription.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtDescription.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
             // MainForm
             // 
@@ -1172,6 +1206,7 @@
             this.metroTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvFi)).EndInit();
             this.metroTabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvJobs)).EndInit();
             this.metroTabPage3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -1180,7 +1215,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.msmMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvJobs)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1243,6 +1277,7 @@
         private MetroFramework.Controls.MetroLink btnDelPrintJob;
         private MetroFramework.Controls.MetroLink btnAddPrintJob;
         private MetroFramework.Controls.MetroGrid gvJobs;
+        private MetroFramework.Controls.MetroTextBox txtDescription;
     }
 }
 
